@@ -3,9 +3,10 @@ let people = [
     { name: "Demetri", Sunday: "out", Monday: "cook", Tuesday: "eat", Wednesday: "cook", Thursday: "out", Friday: "out", Saturday: "out"},
     { name: "Dimitri", Sunday: "cook", Monday: "eat", Tuesday: "cook", Wednesday: "eat", Thursday: "out", Friday: "eat", Saturday: "out",},
     { name: "Dmitry", Sunday: "eat", Monday: "eat", Tuesday: "out", Wednesday: "eat", Thursday: "out", Friday: "cook", Saturday: "out",},
-    { name: "Dmitrij", Sunday: "eat", Monday: "out", Tuesday: "eat", Wednesday: "out", Thursday: "cook", Friday: "out", Saturday: "out",},
-    { name: "Dmeatree", Sunday: "eat", Monday: "out", Tuesday: "out", Wednesday: "out", Thursday: "out", Friday: "out", Saturday: "out",},
 ];
+
+//    { name: "Dmitrij", Sunday: "eat", Monday: "out", Tuesday: "eat", Wednesday: "out", Thursday: "cook", Friday: "out", Saturday: "out",},
+//{ name: "Dmeatree", Sunday: "eat", Monday: "out", Tuesday: "out", Wednesday: "out", Thursday: "out", Friday: "out", Saturday: "out",},
 
 dayOfTheWeek= [
     'Sunday',
@@ -17,7 +18,7 @@ dayOfTheWeek= [
     'Saturday',
 ];
   
-
+//used to get curent date and the day the week started
 function createCalendar() {
     var today = new Date;                               // get current date
     var Sunday = today.getDate() - today.getDay();      // First day is the day of the month - the day of the week
@@ -52,9 +53,19 @@ function generateTable(table, people) {
       let daytext = document.createTextNode(day);
       cell.appendChild(daytext);                            //day of the week
 
+      nextLine = document.createElement("br");
+      cell.appendChild(nextLine);
+
+      let meal = "cabbage"; //Will be getting this from the backend in fututre
+      let mealChoice = document.createElement("INPUT");
+      mealChoice.setAttribute("type", "text");
+      mealChoice.setAttribute("value", meal);
+      cell.appendChild(mealChoice);
+
+
         for (j = 0; j < people.length; j++) {               //for each person reads their opinion on that day
             let cell = row.insertCell();
-            let place = "spot" + i + j;
+            let place = "spot" + i + "," + j;
             let text = document.createTextNode(people[j][day]);
 
             cell.setAttribute("style", "border: 2px solid black; text-align: center; height:184px");
@@ -74,6 +85,7 @@ function generateTable(table, people) {
     }
 }
 
+//displays the crossed out image
 function out(cell) {
     var ex = document.createElement("img");
     ex.setAttribute("src", "images/redline.jpg");
@@ -83,7 +95,8 @@ function out(cell) {
     cell.appendChild(ex);
 }
 
-function stateChange(place) {
+//when a table cell is pressed it changes the state to either a blank square (eat), a red line (out), or the word cook
+function stateChange(place) { 
     cell = document.getElementById(place);
     state = cell.getAttribute('class');
 
@@ -115,6 +128,7 @@ function stateChange(place) {
     }
 }
 
+//removes current state
 function removeChild(cell) {
     if(cell.children.length > 0){                           //remove current child if there is one
         cell.removeChild(cell.firstElementChild);
@@ -122,4 +136,6 @@ function removeChild(cell) {
 }
 
 let table = document.querySelector("table");
-generateTable(table, people);                                //generate the table first
+generateTable(table, people);     //generate the table first
+
+module.exports = {generateTable, out, stateChange, removeChild}

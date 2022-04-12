@@ -19,6 +19,14 @@ h1 {
   text-align: center;
 }
 
+
+input[type=text] {
+  width: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
 /* Style the tab */
 .tab {
     border: 1px solid #ccc;
