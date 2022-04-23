@@ -22,4 +22,6 @@ function tabshift(evt, tabName) {
     evt.currentTarget.className += " active";
     return true
   }
+
+  module.exports = tabshift
   

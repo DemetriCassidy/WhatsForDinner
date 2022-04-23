@@ -73,4 +73,29 @@ function getRecipe (name){
     return arr;
 }
 
-module.exports = {getRecipe, getRecipeTitles}
+function addToRecipe(list, ingredient) {
+    list.push(ingredient);
+    return list;
+}
+
+function removeFromRecipe(list, ingredient) {
+    returnArr = [];
+    if (list == [])
+        return returnArr; // can't delete from nothing
+    
+    for (var i in list) {
+        if (list[i] != ingredient)
+            returnArr.push(list[i]);
+    }
+    return returnArr;
+}
+
+function printArr(arr) {
+    for (i in arr)
+        console.log(arr[i]);
+}
+
+
+
+
+module.exports = {getRecipe, getRecipeTitles, addToRecipe, removeFromRecipe}
