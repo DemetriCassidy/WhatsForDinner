@@ -41,8 +41,9 @@ input {
     font-family: 'Roboto';
 }
 
-button {
+.submit-button {
     margin: auto;
-    padding: 8px 24px;
+    width: 96px;
     font-family: 'Roboto';
+    text-align: center;
 }
