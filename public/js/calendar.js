@@ -17,6 +17,16 @@ dayOfTheWeek= [
     'Friday',
     'Saturday',
 ];
+
+mealOfTheDay= [
+    'Fried Rice',
+    'Chicken Soup',
+    'Spaghetti',
+    'Cheseburgers',
+    'Pizza',
+    'Chicken Cutlets',
+    'Pasta Fajioli'
+];
   
 //used to get curent date and the day the week started
 function createCalendar() {
@@ -55,8 +65,8 @@ function generateTable(table, people) {
 
       nextLine = document.createElement("br");
       cell.appendChild(nextLine);
-
-      let meal = "cabbage"; //Will be getting this from the backend in fututre
+  
+      let meal = mealOfTheDay[i]; //Will be getting this from the backend in fututre
       let mealChoice = document.createElement("INPUT");
       mealChoice.setAttribute("type", "text");
       mealChoice.setAttribute("value", meal);
@@ -132,10 +142,10 @@ function stateChange(place) {
 function removeChild(cell) {
     if(cell.children.length > 0){                           //remove current child if there is one
         cell.removeChild(cell.firstElementChild);
-    }
+    }   
 }
 
-let table = document.querySelector("table");
+let table = document.querySelector(".calendarTable");
 generateTable(table, people);     //generate the table first
 
 module.exports = {generateTable, out, stateChange, removeChild}

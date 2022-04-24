@@ -133,14 +133,12 @@ var recipe_titles = getRecipeTitles();
 
 for (i in recipe_titles) { 
     console.log(recipe_titles[i])
-    recipes.innerHTML += ('<ul>' + recipe_titles[i]); // start and name list
+
+    recipes.innerHTML += ('<ul style="text-decoration: underline;">' + recipe_titles[i]); // start and name list
     let ingredients = getRecipe(recipe_titles[i]);
     for (j in ingredients) {
         console.log("    " + ingredients[j]);
-        recipes.innerHTML += ('<li>' + ingredients[j] + '</li>'); // append to list
+        recipes.innerHTML += ('<li style="list-style: none; padding-left: 50px;"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1">' + ingredients[j] + '</label></li>'); // append to list
     }
     recipes.innerHTML += '</ul>'; // close list
 }
-
-
-//module.exports = {getRecipe, getRecipeTitles, addToRecipe, removeFromRecipe}
