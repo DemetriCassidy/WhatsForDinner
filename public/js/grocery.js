@@ -94,7 +94,6 @@ function getListItems (name){
     return arr;
 }
 
-
 const lists = document.querySelector("#shopping_lists");
 
 console.log(lists);
@@ -103,11 +102,11 @@ var list_titles = getLists();
 
 for (i in list_titles) { 
     console.log(list_titles[i])
-    lists.innerHTML += ('<ul>' + list_titles[i]); // start and name list
+    lists.innerHTML += ('<ul style="text-decoration: underline;">' + lists_titles[i]); // start and name list
     let ingredients = getListItems(list_titles[i]);
     for (j in ingredients) {
         console.log("    " + ingredients[j]);
-        lists.innerHTML += ('<li>' + ingredients[j] + '</li>'); // append to list
+        lists.innerHTML += ('<li style="list-style: none; padding-left: 50px;"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1">' + ingredients[j] + '</label></li>'); // append to list
     }
     lists.innerHTML += '</ul>'; // close list
 }
