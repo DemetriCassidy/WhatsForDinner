@@ -134,7 +134,7 @@ var recipe_titles = getRecipeTitles();
 for (i in recipe_titles) { 
     console.log(recipe_titles[i])
 
-    recipes.innerHTML += ('<ul style="">' + recipe_titles[i]); // start and name list
+    recipes.innerHTML += ('<ul style="text-decoration: underline;">' + recipe_titles[i]); // start and name list
     let ingredients = getRecipe(recipe_titles[i]);
     for (j in ingredients) {
         console.log("    " + ingredients[j]);

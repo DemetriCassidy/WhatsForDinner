@@ -102,7 +102,7 @@ var list_titles = getLists();
 
 for (i in list_titles) { 
     console.log(list_titles[i])
-    lists.innerHTML += ('<ul style="text-decoration: underline;">' + lists_titles[i]); // start and name list
+    lists.innerHTML += ('<ul style="text-decoration: underline;">' + list_titles[i]); // start and name list
     let ingredients = getListItems(list_titles[i]);
     for (j in ingredients) {
         console.log("    " + ingredients[j]);
