@@ -24,15 +24,23 @@ app.post("/auth", (req, res) => {
     // grab credentials from request body
     let username = req.body.username;
     let password = req.body.password;
-    // ensure that username and passord have values
+    // ensure that username and password have values
     if (username && password) {
-        res.send(`Username: ${username}, Password: ${password}`);
-        res.end();
+        // replacing this chunk later if we end up using the database
+        const logins = require(__dirname + "/public/data/logins.json");
+        for (let i = 0; i < logins["families"].length; i++) {
+            if (
+                logins["families"][i]["email"] === username &&
+                logins["families"][i]["password"] === password
+            ) {
+                res.redirect("/");
+            } else {
+                res.send("Incorrect username/password!");
+            }
+        }
     } else {
         res.send("Please enter a username and password!");
-        res.end();
     }
-    console.log(req.body);
 });
 
 // ensures Node is listening for requests on the set port
