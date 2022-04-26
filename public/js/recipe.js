@@ -138,7 +138,7 @@ for (i in recipe_titles) {
     let ingredients = getRecipe(recipe_titles[i]);
     for (j in ingredients) {
         console.log("    " + ingredients[j]);
-        recipes.innerHTML += ('<li style="">' + ingredients[j] + '</li>'); // append to list
+        recipes.innerHTML += ('<li style="padding-left: 50px;">' + ingredients[j] + '</li>'); // append to list
     }
     recipes.innerHTML += '</ul>'; // close list
 }

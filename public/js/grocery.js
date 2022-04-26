@@ -106,7 +106,7 @@ for (i in list_titles) {
     let ingredients = getListItems(list_titles[i]);
     for (j in ingredients) {
         console.log("    " + ingredients[j]);
-        lists.innerHTML += ('<li style="list-style: none; padding-left: 50px;"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><label for="vehicle1">' + ingredients[j] + '</label></li>'); // append to list
+        lists.innerHTML += ('<li style="list-style: none; padding-left: 45px;"><input type="checkbox" id="groceries" name="groceries" value="grocery-list"><label for="groceries" style="padding-left: 15px">' + ingredients[j] + '</label></li>'); // append to list
     }
     lists.innerHTML += '</ul>'; // close list
 }

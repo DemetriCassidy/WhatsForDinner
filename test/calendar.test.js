@@ -2,10 +2,8 @@ const  {generateTable, out, stateChange, removeChild} = require('../public/js/ca
 
 let people = [
     { name: "Demetri", Sunday: "out", Monday: "cook", Tuesday: "eat", Wednesday: "cook", Thursday: "out", Friday: "out", Saturday: "out"},
-    { name: "Dimitri", Sunday: "cook", Monday: "eat", Tuesday: "cook", Wednesday: "eat", Thursday: "out", Friday: "eat", Saturday: "out",},
-    { name: "Dmitry", Sunday: "eat", Monday: "eat", Tuesday: "out", Wednesday: "eat", Thursday: "out", Friday: "cook", Saturday: "out",},
-    { name: "Dmitrij", Sunday: "eat", Monday: "out", Tuesday: "eat", Wednesday: "out", Thursday: "cook", Friday: "out", Saturday: "out",},
-    { name: "Dmeatree", Sunday: "eat", Monday: "out", Tuesday: "out", Wednesday: "out", Thursday: "out", Friday: "out", Saturday: "out",},
+    { name: "Jack", Sunday: "cook", Monday: "eat", Tuesday: "cook", Wednesday: "eat", Thursday: "out", Friday: "eat", Saturday: "out",},
+    { name: "Josh", Sunday: "eat", Monday: "eat", Tuesday: "out", Wednesday: "eat", Thursday: "out", Friday: "cook", Saturday: "out",},
 ];
 
 dayOfTheWeek= [
