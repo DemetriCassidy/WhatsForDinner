@@ -4,33 +4,16 @@ console.log("Running Grocery.js");
 
 //var json_data = require('../data/grocery_list.json');
 
-var json_data = {"lists":[
-    {"list":"Weekly Shopping", "items":[
-        {"item":"Turkey"},
-        {"item":"Bread"},
-        {"item":"Cereal"},
-        {"item":"Milk"},
-        {"item":"Cookies"},
-        {"item":"Pasta"}
-    ]},
-    {"list":"Barbeque", "items":[
-        {"item":"Hamburger Meat"},
-        {"item":"Hotdogs"},
-        {"item":"Buns"},
-        {"item":"Ketchup"},
-        {"item":"Mustard"},
-        {"item":"Chips"}
-    ]},
-    {"list":"Birthday Party", "items":[
-        {"item":"Cake"},
-        {"item":"Paper Plates"},
-        {"item":"Plastic Utensils"},
-        {"item":"Candles"},
-        {"item":"Icecream"},
-        {"item":"Soda"}
-    ]}
-]}
-    
+var json_data = localStorage.getItem("groceryLists");
+json_data = JSON.parse(json_data);
+if(json_data == null) {
+    console.log("json_data is null");
+    json_data = {"lists":[
+        {"list":"Example List", "items":[
+            {"item":"Example Item"}
+        ]}
+    ]};
+}
 
 function createList(listName) {
     const express = require('express');
@@ -96,7 +79,7 @@ function getListItems (name){
 
 const lists = document.querySelector("#shopping_lists");
 
-console.log(lists);
+//console.log(lists);
 
 var list_titles = getLists();
 
@@ -111,5 +94,10 @@ for (i in list_titles) {
     lists.innerHTML += '</ul>'; // close list
 }
 
-module.exports = {createList: createList, getLists: getLists, getListItems: getListItems}
+function clearLists() {
+    localStorage.removeItem("groceryLists");
+    window.location.reload();
+}
+
+//module.exports = {createList: createList, getLists: getLists, getListItems: getListItems}
 

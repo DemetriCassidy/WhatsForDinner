@@ -7,6 +7,10 @@
         {
             "email": "fakeperson@testmail.com",
             "password": "!321drowssap"
+        },
+        {
+            "email": "jack@gmail.com",
+            "password": "jack123"
         }
     ]
 }
