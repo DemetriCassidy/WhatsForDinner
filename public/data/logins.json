@@ -1,0 +1,12 @@
+{
+    "families": [
+        {
+            "email": "fakeperson@fakecollege.edu",
+            "password": "password123!"
+        },
+        {
+            "email": "fakeperson@testmail.com",
+            "password": "!321drowssap"
+        }
+    ]
+}

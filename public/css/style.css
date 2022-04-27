@@ -37,12 +37,10 @@ h1 {
   font-family: 'Roboto Slab';
 }
 
-
-input[type=text] {
-  width: 120px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
+/* Stylize login info */
+#login-info {
+  font-family: 'Roboto';
+  font-size:smaller;
 }
 
 /* Style the tab */
@@ -85,7 +83,6 @@ input[type=text] {
     border-top: none;
     background-color: white;
 }
-
 
 .table {
 }
