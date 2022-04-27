@@ -37,6 +37,12 @@ h1 {
   font-family: 'Roboto Slab';
 }
 
+/* Stylize login info */
+#login-info {
+  font-family: 'Roboto';
+  font-size:smaller;
+}
+
 /* Style the tab */
 .tab {
     border: 1px solid #ccc;

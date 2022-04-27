@@ -6,6 +6,9 @@ var app = express();
 var PORT = process.env.PORT || 8000; // sets port based on app's environment
 app.set("port", PORT);
 
+// use ejs as a rendering engine for HTML files
+app.engine("html", require("ejs").renderFile);
+
 // serves static files in ./public/ directory and its subdirectories
 app.use(express.static(__dirname + "/public"));
 
@@ -40,7 +43,9 @@ app.get("/home", (req, res) => {
     if (req.session.loggedIn !== true) {
         res.redirect("/");
     } else {
-        res.sendFile(path.join(__dirname + "/public/home.html"));
+        res.render(__dirname + "/public/home.html", {
+            username: req.session.username,
+        });
     }
 });
 
@@ -61,6 +66,7 @@ app.post("/auth", (req, res) => {
                 logins["families"][i]["password"] === password
             ) {
                 req.session.loggedIn = true;
+                req.session.username = username;
                 res.redirect("/home");
             } else {
                 // res.send("Incorrect username/password!");
